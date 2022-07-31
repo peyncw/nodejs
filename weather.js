@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 import { getArgs } from './helpers/args.js';
+import { printHelp } from './services/log.service.js';
 
 const initCLI = () => {
-	console.log('started', process.argv);
-	console.log(getArgs(process.argv));
+	const args = getArgs(process.argv);
+
+	if (args.h) {
+		printHelp();
+	}
+
 };
 
 initCLI();
